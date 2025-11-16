@@ -1,6 +1,5 @@
 import java.util.*;
 
-// --- OBSERVER INTERFACES ---
 interface BeatObserver {
     void updateBeat();
 }

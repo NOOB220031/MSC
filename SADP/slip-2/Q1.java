@@ -1,11 +1,8 @@
-//  Write a Java Program to implement Singleton pattern for multithreading.
-
 class Singleton {
     private static Singleton instance;
     private Singleton() {
     }
 
-    // Synchronized method to ensure thread safety
     public static synchronized Singleton getInstance() {
         if (instance == null) {
             instance = new Singleton();
@@ -21,7 +18,7 @@ class Singleton {
 
 public class Q1 {
     public static void main(String[] args) {
-        // Creating two threads that access the Singleton instance
+
         Thread t1 = new Thread(() -> {
             Singleton singleton = Singleton.getInstance();
             singleton.showMessage();

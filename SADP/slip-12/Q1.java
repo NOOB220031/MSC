@@ -1,16 +1,13 @@
-// Component Interface
 interface Car {
     void assemble();
 }
 
-// Concrete Component
 class BasicCar implements Car {
     public void assemble() {
         System.out.print("Basic Car");
     }
 }
 
-// Decorator
 class CarDecorator implements Car {
     protected Car decoratedCar;
 
@@ -23,7 +20,6 @@ class CarDecorator implements Car {
     }
 }
 
-// Concrete Decorators
 class SportsCar extends CarDecorator {
     public SportsCar(Car c) {
         super(c);
