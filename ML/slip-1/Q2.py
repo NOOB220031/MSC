@@ -1,37 +1,22 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
+# 1. Load CSV
+df = pd.read_csv("./CSV/Iris.csv")
 
-df = pd.read_csv("./CSV/iris.csv")
-
-
-print("Before conversion:")
+print("Original Data:")
 print(df.head())
 
-df['Species_numeric'] = df['Species'].astype('category').cat.codes
-species_names = df['Species'].astype('category').cat.categories
+# 2. Convert categorical species to numeric
+df["species_code"] = df["Species"].astype("category").cat.codes
 
-print("\nAfter conversion:")
+print("\nData after converting species to numeric:")
 print(df.head())
 
-
-for i, species in enumerate(species_names):
-    data = df[df['Species_numeric'] == i]
-    plt.scatter(data['SepalLengthCm'], data['SepalWidthCm'], label=species)
-
+# 3. Scatter plot
+plt.scatter(df["SepalLengthCm"], df["SepalWidthCm"], c=df["species_code"])
 plt.xlabel("Sepal Length (cm)")
 plt.ylabel("Sepal Width (cm)")
-plt.title("Sepal Length vs Sepal Width")
-plt.legend()
-plt.show()
-
-
-for i, species in enumerate(species_names):
-    data = df[df['Species_numeric'] == i]
-    plt.scatter(data['PetalLengthCm'], data['PetalWidthCm'], label=species)
-
-plt.xlabel("Petal Length (cm)")
-plt.ylabel("Petal Width (cm)")
-plt.title("Petal Length vs Petal Width")
-plt.legend()
+plt.title("Scatter Plot: Sepal Length vs Sepal Width")
+plt.grid(True)
 plt.show()

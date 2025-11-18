@@ -11,7 +11,6 @@ df = pd.read_csv("./CSV/HousingData.csv")
 print("First few rows of dataset:")
 print(df.head())
 
-
 X = df[['RM']]   
 y = df['MEDV']
 
